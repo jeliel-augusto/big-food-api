@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from "typeorm"
 
 @Entity()
 export class Prato {
@@ -6,4 +6,6 @@ export class Prato {
     id!: number
     @Column()
     nome!: string
+    @CreateDateColumn()
+    criadoEm!: Date
 }

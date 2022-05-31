@@ -15,7 +15,6 @@ export const AppDataSource = new DataSource({
     synchronize: process.env.TYPEORM_SYNCHRONIZE === 'true',
     logging: process.env.TYPEORM_LOGGING === 'true',
     entities: [Prato],
-    
     migrations: ['src/migration/*.ts'],
     subscribers: [],
 })
