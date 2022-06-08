@@ -1,14 +1,7 @@
 import { Request, Response } from "express"
-import { Raw } from "typeorm"
 import { AppDataSource } from "../data-source"
 import { Prato } from "../entity/Prato"
 
-let pratos_ = [
-    'Picanha com arroz',
-    'Frango Assado Completo',
-    'Assado de Panela',
-    'Lasanha'
-]
 class CardapioController {    
     async listarPratos(req: Request, res: Response) {
         const repository = AppDataSource.manager.getRepository(Prato)
