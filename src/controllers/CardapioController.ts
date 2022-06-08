@@ -6,7 +6,9 @@ class CardapioController {
     async listarPratos(req: Request, res: Response) {
         const repository = AppDataSource.manager.getRepository(Prato)
         try {
-            const pratos = await repository.find()
+            const pratos = await repository.find({
+                relations: ['restaurante']
+            })
             res.json(pratos)
         } catch(e) {
             res.status(500).json({
@@ -18,7 +20,7 @@ class CardapioController {
         const body = req.body
         const repository = AppDataSource.manager.getRepository(Prato)
         try {
-            const result = await repository.save(body)
+            const result = await repository.save(body) // depende do cascade para funcionar objetos aninhados
             res.status(201).json(result)
         }catch(e: any) {
             res.status(400).json({ 

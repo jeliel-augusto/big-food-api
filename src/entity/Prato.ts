@@ -15,7 +15,7 @@ export class Prato {
     @ManyToOne(() => Restaurante, r => r.pratos)
     @JoinColumn()
     restaurante!: Restaurante
-    @ManyToMany(() => IngredienteComum, ic => ic.pratos)
+    @ManyToMany(() => IngredienteComum, ic => ic.pratos, { cascade: ['insert', 'update'] })
     @JoinTable()
     ingredientes!: IngredienteComum[]
 }
